@@ -1,16 +1,22 @@
 import HeroHeader from "@/components/common/HeroHeader";
-// import Header from "@/components/RootView/common/Header";
+import Navbar from "@/components/RootView/common/Navbar";
 import { Outlet } from "react-router-dom";
 
 const RootLayout = () => {
   return (
-    <div className="flex flex-col bg-white overflow-hidden">
-      <HeroHeader/>
-      {/* <Header /> */}
-      <hr />
-      <div className="flex flex-col w-full">
+    <div className="min-h-screen flex flex-col">
+      {/* Header Section */}
+      <header className="sticky top-0 z-50">
+        <HeroHeader />
+        <Navbar />
+      </header>
+
+      {/* Main Content */}
+      <main className="flex-1">
         <Outlet />
-      </div>
+      </main>
+
+      {/* Footer would go here */}
     </div>
   );
 };
