@@ -97,7 +97,7 @@ const Navbar = () => {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => navigate("/profile")}>
+                <DropdownMenuItem onClick={() => navigate("/my-profile")}>
                   <User className="mr-2 h-4 w-4" />
                   <span>Profile</span>
                 </DropdownMenuItem>
@@ -109,11 +109,11 @@ const Navbar = () => {
             </DropdownMenu>
           ) : (
             <>
-              <Button variant="outline" size="sm" className="gap-2" onClick={() => navigate("/login")}>
+              <Button variant="outline" size="sm" className="gap-2" onClick={() => navigate("/auth/login")}>
                 <LogIn size={16} />
                 <span>Login</span>
               </Button>
-              <Button size="sm" className="gap-2" onClick={() => navigate("/register")}>
+              <Button size="sm" className="gap-2" onClick={() => navigate("/auth/register")}>
                 <User size={16} />
                 <span>Register</span>
               </Button>
@@ -153,7 +153,7 @@ const Navbar = () => {
             <div className="flex gap-3 mt-3">
               {user ? (
                 <>
-                  <Button variant="outline" className="flex-1 gap-2" onClick={() => navigate("/profile")}>
+                  <Button variant="outline" className="flex-1 gap-2" onClick={() => navigate("/my-profile")}>
                     <User size={16} />
                     <span>Profile</span>
                   </Button>
@@ -164,11 +164,11 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <Button variant="outline" className="flex-1 gap-2" onClick={() => navigate("/login")}>
+                  <Button variant="outline" className="flex-1 gap-2" onClick={() => navigate("/auth/login")}>
                     <LogIn size={16} />
                     <span>Login</span>
                   </Button>
-                  <Button className="flex-1 gap-2" onClick={() => navigate("/register")}>
+                  <Button className="flex-1 gap-2" onClick={() => navigate("/auth/register")}>
                     <User size={16} />
                     <span>Register</span>
                   </Button>
