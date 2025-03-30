@@ -15,6 +15,7 @@ import UnAuthorization from "@/pages/Common/UnAuthorization/UnAuthorization";
 import PrivateRoute from "./PrivateRoute";
 import ServicesPage from "@/pages/RootView/Services/Services";
 import ServiceDetail from "@/pages/RootView/Services/ServiceDetail";
+import ServiceAreas from "@/pages/RootView/ServiceAreas/ServiceAreas";
 
 const Router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const Router = createBrowserRouter([
       {
         path: "services/:id",
         element: <ServiceDetail />,
+      },
+      {
+        path: "areas",
+        element: <ServiceAreas />
       },
       {
         path: "about-us",
