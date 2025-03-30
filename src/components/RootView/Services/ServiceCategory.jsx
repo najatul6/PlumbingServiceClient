@@ -46,14 +46,7 @@ const ServiceCategory = ({ category }) => {
 };
 
 ServiceCategory.propTypes = {
-    category: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-        icon: PropTypes.element.isRequired,
-        services: PropTypes.arrayOf(PropTypes.string).isRequired,
-    }).isRequired,
+    category: PropTypes.any
 };
 
 
