@@ -1,4 +1,5 @@
 import HeroHeader from "@/components/common/HeroHeader";
+import Footer from "@/components/RootView/common/Footer";
 import Navbar from "@/components/RootView/common/Navbar";
 import { Outlet } from "react-router-dom";
 
@@ -16,7 +17,8 @@ const RootLayout = () => {
         <Outlet />
       </main>
 
-      {/* Footer would go here */}
+      {/* Footer Section */}
+      <Footer/>
     </div>
   );
 };
