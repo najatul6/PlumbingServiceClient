@@ -1,4 +1,4 @@
-import { GiPlumber } from "react-icons/gi";
+import { MdPlumbing } from "react-icons/md";
 
 const OurStory = () => {
   return (
@@ -23,7 +23,7 @@ const OurStory = () => {
               We&#39;re proud to be a locally-owned business serving our community&#39;s plumbing needs for over a decade. When you choose PrimeFlow, you&#39;re supporting local jobs and getting service from neighbors who care about your home as much as you do.
             </p>
             <div className="flex items-center gap-3">
-              <GiPlumber className="text-blue-500" size={32} />
+              <MdPlumbing  className="text-blue-500" size={32} />
               <span className="font-semibold text-[#2c3e50]">Licensed • Insured • Bonded</span>
             </div>
           </div>
