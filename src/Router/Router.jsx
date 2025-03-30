@@ -13,6 +13,8 @@ import { createBrowserRouter } from "react-router-dom";
 import AdminRoute from "./AdminRoute";
 import UnAuthorization from "@/pages/Common/UnAuthorization/UnAuthorization";
 import PrivateRoute from "./PrivateRoute";
+import ServicesPage from "@/pages/RootView/Services/Services";
+import ServiceDetail from "@/pages/RootView/Services/ServiceDetail";
 
 const Router = createBrowserRouter([
   {
@@ -26,6 +28,11 @@ const Router = createBrowserRouter([
       },
       {
         path: "services",
+        element: <ServicesPage />,
+      },
+      {
+        path: "services/:id",
+        element: <ServiceDetail />,
       },
       {
         path: "about",
