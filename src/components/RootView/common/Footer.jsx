@@ -12,14 +12,14 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="h-8 w-8">
+              <div className="h-20 w-20">
               <Lottie
                             animationData={plumbingAnimation}
                             loop={true}
                             className="w-full h-full"
                         />
               </div>
-              <h3 className="text-xl font-bold">PrimeFlow Plumbing</h3>
+              <h3 className="text-xl font-bold text-wrap">PrimeFlow Plumbing</h3>
             </div>
             <p className="text-gray-300">
               Licensed and insured plumbing professionals serving your area since 2010.
