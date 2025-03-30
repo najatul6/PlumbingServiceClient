@@ -4,32 +4,23 @@ import OurStory from "@/components/RootView/About/OurStory";
 import OurTeam from "@/components/RootView/About/OurTeam";
 import Stats from "@/components/RootView/About/Stats";
 import OurValues from "@/components/RootView/About/OurValues";
+import HeroSection from "@/components/RootView/About/HeroSection";
 
 const AboutPage = () => {
- 
-
-  
 
   return (
     <div className="bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-[#2c3e50] text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">About PrimeFlow Plumbing</h1>
-          <p className="text-xl max-w-3xl mx-auto">
-            Family-owned and operated plumbing service dedicated to quality workmanship and customer satisfaction.
-          </p>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Our Story */}
       <OurStory />
 
       {/* Stats */}
-      <Stats/>
+      <Stats />
 
       {/* Our Team */}
-      <OurTeam/>
+      <OurTeam />
 
       {/* Our Values */}
       <OurValues />
