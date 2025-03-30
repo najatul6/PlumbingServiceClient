@@ -43,7 +43,7 @@ const HeroSection = () => {
         {/* Image */}
         <div className="md:w-1/2">
           <img 
-            src="https://images.unsplash.com/photo-1600881336149-ca8b0a6e0c0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" 
+            src="https://nirplumbing.com/wp-content/uploads/2020/12/Emergency-plumbing-services.jpeg" 
             alt="Professional Plumber at Work"
             className="rounded-lg shadow-xl w-full h-auto max-h-[400px] object-cover"
           />

@@ -13,7 +13,6 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { toast } from "react-toastify";
-import useRole from "@/hooks/useRole";
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -21,7 +20,6 @@ const Navbar = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { user, logOut } = useAuth();
-    const [userRole] = useRole()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -55,7 +53,7 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className={`sticky top-0 z-40 bg-[#2c3e50] shadow-xl transition-all ${isScrolled ? "py-2 shadow-md" : "py-3"}`}>
+        <nav className={`sticky top-0 z-40 bg-[#2c3e50] shadow-xl transition-all ${isScrolled ? "py-5 shadow-md" : "py-5"}`}>
             <div className="container mx-auto px-4 flex items-center justify-between">
                 {/* Logo with animation */}
                 <NavLink to="/" className="flex items-center gap-2">
