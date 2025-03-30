@@ -12,8 +12,6 @@ const DashboardLayout = () => {
         profileOpen={profileOpen}
         setProfileOpen={setProfileOpen}
       />
-
-Hello senders
       <div className="flex items-start">
         <DashboardSidebar
           setSidebarOpen={setSidebarOpen}

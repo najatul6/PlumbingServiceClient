@@ -6,8 +6,8 @@ import plumbingAnimation from "@/assets/Animations/plumbingAnimation.json";
 const DashboardHeader = () => {
   const { user } = useAuth();
   return (
-    <header className="flex shadow-md py-1 px-4 sm:px-7 bg-background2 min-h-[70px] tracking-wide z-[110] fixed top-0 w-full">
-      <div className="flex flex-wrap items-center justify-between gap-4 w-full relative bg-background2">
+    <header className="flex shadow-md py-1 px-4 sm:px-7 bg-[#2c3e50] min-h-[70px] tracking-wide z-[110] fixed top-0 w-full">
+      <div className="flex flex-wrap items-center justify-between gap-4 w-full relative bg-[#2c3e50]">
         <Link to="/" className="flex justify-center items-center gap-2">
         <Link to="/" className="flex items-center gap-2">
           <div className="h-8 w-8 text-white flex items-center justify-center rounded-full">
@@ -17,7 +17,7 @@ const DashboardHeader = () => {
               className="w-full h-full"
             />
           </div>
-          <span className="text-md font-bold text-blue-800 md:block">
+          <span className="text-md font-bold text-white md:block">
             PrimeFlow Plumbing
           </span>
         </Link>

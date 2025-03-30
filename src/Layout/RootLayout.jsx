@@ -6,8 +6,8 @@ const RootLayout = () => {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header Section */}
-      <header className="sticky top-0 z-50 mb-2">
         <HeroHeader />
+      <header className="sticky top-0 z-50">
         <Navbar />
       </header>
 

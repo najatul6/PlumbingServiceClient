@@ -12,13 +12,14 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const { user, logout } = useAuth();
+  const { user, logOut } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,8 +34,14 @@ const Navbar = () => {
   }, [location]);
 
   const handleLogout = () => {
-    logout();
-    navigate("/");
+    logOut()
+      .then(() => {
+        toast.success('Logged out successfully!');
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error(`Logout failed: ${error.message}`);
+      });
   };
 
   const navLinks = [
@@ -46,7 +53,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`sticky top-0 z-40 bg-white shadow-xl transition-all ${isScrolled ? "py-2 shadow-md" : "py-3"}`}>
+    <nav className={`sticky top-0 z-40 bg-[#2c3e50] shadow-xl transition-all ${isScrolled ? "py-2 shadow-md" : "py-3"}`}>
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo with animation */}
         <NavLink to="/" className="flex items-center gap-2">
@@ -57,7 +64,7 @@ const Navbar = () => {
               className="w-full h-full"
             />
           </div>
-          <span className="text-md font-bold text-blue-800 md:block">
+          <span className="text-md font-bold text-white md:block">
             PrimeFlow Plumbing
           </span>
         </NavLink>
@@ -72,7 +79,7 @@ const Navbar = () => {
                 `text-sm font-medium transition-colors ${
                   isActive 
                     ? "text-blue-600 font-semibold border-b-2 border-blue-600 pb-1" 
-                    : "text-gray-700 hover:text-blue-500"
+                    : "text-white hover:text-blue-500"
                 }`
               }
             >
@@ -86,17 +93,17 @@ const Navbar = () => {
           {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="gap-2">
-                  <Avatar className="h-6 w-6">
+                {/* <Button variant="ghost" className="gap-2 rounded-full px-0 py-0"> */}
+                  <Avatar className="h-7 w-7 hover:border-2 hover:border-blue-700 cursor-pointer">
                     <AvatarImage src={user.photoURL} />
                     <AvatarFallback>
                       {user.displayName?.charAt(0) || "U"}
                     </AvatarFallback>
                   </Avatar>
-                  <span className="hidden lg:inline">Account</span>
-                </Button>
+                  {/* <span className="hidden lg:inline">Account</span> */}
+                {/* </Button> */}
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
+              <DropdownMenuContent align="end" className="bg-gray-300 shadow-xl ">
                 <DropdownMenuItem onClick={() => navigate("/my-profile")}>
                   <User className="mr-2 h-4 w-4" />
                   <span>Profile</span>
@@ -123,7 +130,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 rounded-md text-gray-700"
+          className="md:hidden p-2 rounded-md text-white"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >

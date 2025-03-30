@@ -90,7 +90,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
             sidebarOpen
               ? "block w-[250px] visible opacity-[1]"
               : "block w-[32px] "
-          } bg-background2 flex flex-col justify-between shadow-lg h-screen fixed py-6 px-4 top-[70px] left-0 overflow-auto z-[99] lg:min-w-[250px] lg:w-max  transition-all duration-500`}
+          } bg-[#2c3e50] flex flex-col justify-between shadow-lg h-screen fixed py-6 px-4 top-[70px] left-0 overflow-auto z-[99] lg:min-w-[250px] lg:w-max  transition-all duration-500`}
         >
           <ul className="space-y-2">
             {userRole === "user"
