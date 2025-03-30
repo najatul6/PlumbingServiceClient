@@ -32,7 +32,7 @@ const Testimonials = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[#2c3e50] mb-4">What Our Customers Say</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Don't just take our word for it - hear from our satisfied customers.
+              Don&apos;t just take our word for it - hear from our satisfied customers.
             </p>
           </div>
   
@@ -65,7 +65,7 @@ const Testimonials = () => {
                     </svg>
                   ))}
                 </div>
-                <p className="text-gray-700 italic">"{testimonial.comment}"</p>
+                <p className="text-gray-700 italic">&quot;{testimonial.comment}&quot;</p>
               </div>
             ))}
           </div>
@@ -73,3 +73,5 @@ const Testimonials = () => {
       </section>
     );
   };
+
+export default Testimonials;
