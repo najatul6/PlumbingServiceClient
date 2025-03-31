@@ -7,7 +7,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 
 const ContactPage = () => {
   return (
-    <div className="max-w-4xl mx-auto py-12 px-6 space-y-8">
+    <div className="bg-[#2c3e50] py-12 px-6 space-y-8">
       {/* Hero Section */}
       <div className="text-center">
         <h1 className="text-4xl font-bold text-blue-600">Contact Us</h1>

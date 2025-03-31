@@ -1,6 +1,5 @@
 import { FaMapMarkerAlt, FaPhone, FaCarAlt, FaClock } from "react-icons/fa";
 import { useState, useEffect, useRef } from "react";
-import ReactDOM from "react-dom";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
