@@ -1,5 +1,16 @@
 import { FaMapMarkerAlt, FaPhone, FaCarAlt, FaClock } from "react-icons/fa";
 import { useState, useEffect, useRef } from "react";
+import ReactDOM from "react-dom";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+
+// Fix for default marker icons
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png",
+  iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
+});
 
 const ServiceAreas = () => {
   const [expanded, setExpanded] = useState(false);
@@ -53,40 +64,30 @@ const ServiceAreas = () => {
     }
   ];
 
-  // Initialize Google Map
+  // Initialize Leaflet Map
   useEffect(() => {
-    if (!window.google || !mapRef.current) return;
+    if (!mapRef.current) return;
 
-    const portland = new window.google.maps.LatLng(45.5152, -122.6784);
-    const mapInstance = new window.google.maps.Map(mapRef.current, {
-      center: portland,
-      zoom: 10,
-      styles: [
-        {
-          featureType: "poi",
-          stylers: [{ visibility: "off" }]
-        },
-        {
-          featureType: "transit",
-          elementType: "labels.icon",
-          stylers: [{ visibility: "off" }]
-        }
-      ]
-    });
+    const mapInstance = L.map(mapRef.current).setView([45.5152, -122.6784], 10);
 
-    // Draw service radius
-    new window.google.maps.Circle({
-      strokeColor: "#3498db",
-      strokeOpacity: 0.8,
-      strokeWeight: 2,
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 18,
+    }).addTo(mapInstance);
+
+    // Add service radius circle (25 miles ≈ 40,234 meters)
+    L.circle([45.5152, -122.6784], {
+      color: "#3498db",
       fillColor: "#3498db",
       fillOpacity: 0.2,
-      map: mapInstance,
-      center: portland,
-      radius: 40233.6 // 25 miles in meters
-    });
+      radius: 40234
+    }).addTo(mapInstance);
 
     setMap(mapInstance);
+
+    return () => {
+      mapInstance.remove();
+    };
   }, []);
 
   // Add/remove markers when expanded state changes
@@ -94,39 +95,52 @@ const ServiceAreas = () => {
     if (!map) return;
 
     // Clear existing markers
-    markers.forEach(marker => marker.setMap(null));
+    markers.forEach(marker => marker.remove());
     const newMarkers = [];
+
+    // Custom marker icons
+    const blueIcon = L.icon({
+      iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png",
+      shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
+    });
+
+    const greenIcon = L.icon({
+      iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
+      shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
+    });
 
     // Add primary markers (always visible)
     serviceAreas.primary.forEach(area => {
-      const marker = new window.google.maps.Marker({
-        position: { lat: area.lat, lng: area.lng },
-        map,
-        title: area.name,
-        icon: {
-          url: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-        }
-      });
+      const marker = L.marker([area.lat, area.lng], { 
+        icon: blueIcon,
+        title: area.name
+      }).addTo(map)
+        .bindPopup(`<b>${area.name}</b><br>Primary Service Area`);
       newMarkers.push(marker);
     });
 
     // Add secondary markers if expanded
     if (expanded) {
       serviceAreas.secondary.forEach(area => {
-        const marker = new window.google.maps.Marker({
-          position: { lat: area.lat, lng: area.lng },
-          map,
-          title: area.name,
-          icon: {
-            url: "https://maps.google.com/mapfiles/ms/icons/green-dot.png"
-          }
-        });
+        const marker = L.marker([area.lat, area.lng], { 
+          icon: greenIcon,
+          title: area.name
+        }).addTo(map)
+          .bindPopup(`<b>${area.name}</b><br>Extended Service Area`);
         newMarkers.push(marker);
       });
     }
 
     setMarkers(newMarkers);
-  }, [expanded, map, serviceAreas.primary, serviceAreas.secondary, markers]);
+  }, [expanded, map]);
 
   return (
     <section className="py-16 bg-[#2c3e50] text-white">
@@ -154,8 +168,8 @@ const ServiceAreas = () => {
         {/* Interactive Map */}
         <div 
           ref={mapRef} 
-          className="w-full h-96 rounded-lg overflow-hidden shadow-xl mb-8"
-          style={{ minHeight: '400px' }}
+          className="w-full h-96 rounded-lg overflow-hidden shadow-xl mb-8 z-0"
+          style={{ minHeight: "400px" }}
         />
 
         {/* Areas List */}
@@ -170,14 +184,12 @@ const ServiceAreas = () => {
                 className="bg-white bg-opacity-10 p-4 rounded-lg text-center hover:bg-opacity-20 transition-colors cursor-default"
                 onMouseOver={() => {
                   if (map) {
-                    map.panTo({ lat: area.lat, lng: area.lng });
-                    map.setZoom(12);
+                    map.flyTo([area.lat, area.lng], 12);
                   }
                 }}
                 onMouseOut={() => {
                   if (map) {
-                    map.panTo({ lat: 45.5152, lng: -122.6784 });
-                    map.setZoom(10);
+                    map.flyTo([45.5152, -122.6784], 10);
                   }
                 }}
               >
@@ -193,9 +205,9 @@ const ServiceAreas = () => {
             onClick={() => setExpanded(!expanded)}
             className="inline-flex items-center gap-2 bg-white text-[#2c3e50] hover:bg-gray-100 font-semibold py-2 px-6 rounded-lg transition-colors"
           >
-            {expanded ? 'Show Less Areas' : 'Show All Areas'}
+            {expanded ? "Show Less Areas" : "Show All Areas"}
             <svg 
-              className={`w-4 h-4 transition-transform ${expanded ? 'rotate-180' : ''}`} 
+              className={`w-4 h-4 transition-transform ${expanded ? "rotate-180" : ""}`} 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"
