@@ -16,6 +16,7 @@ import PrivateRoute from "./PrivateRoute";
 import ServicesPage from "@/pages/RootView/Services/Services";
 import ServiceDetail from "@/pages/RootView/Services/ServiceDetail";
 import ServiceAreas from "@/pages/RootView/ServiceAreas/ServiceAreas";
+import ContactPage from "@/pages/RootView/ContactPage/ContactPage";
 
 const Router = createBrowserRouter([
   {
@@ -36,12 +37,16 @@ const Router = createBrowserRouter([
         element: <ServiceDetail />,
       },
       {
-        path: "areas",
+        path: "serviceAreas",
         element: <ServiceAreas />
       },
       {
         path: "about-us",
         element: <About />,
+      },
+      {
+        path: "contact-us",
+        element:<ContactPage />,
       },
       {
         path: "my-profile",
