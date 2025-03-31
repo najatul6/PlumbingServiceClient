@@ -1,73 +1,64 @@
-import React from "react";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from "react-icons/fa";
 
 const ContactPage = () => {
   return (
-    <div className="bg-[#2c3e50] py-12 px-6 space-y-8">
-      {/* Hero Section */}
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-blue-600">Contact Us</h1>
-        <p className="text-gray-600 mt-2">
-          Have a question? Need help? Fill out the form or contact us directly.
-        </p>
-      </div>
+    <section className="py-16 bg-[#2c3e50] text-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            Get in touch with our team for inquiries, support, or service requests.
+          </p>
+        </div>
 
-      {/* Contact Form */}
-      <Card>
-        <CardContent className="p-6 space-y-4">
+        {/* Contact Details */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm">
+            <div className="flex items-center gap-3 mb-3">
+              <FaMapMarkerAlt className="text-blue-500" size={20} />
+              <h3 className="text-xl font-semibold">Our Location</h3>
+            </div>
+            <p className="text-gray-300">123 Main Street, Portland, OR</p>
+          </div>
+          <div className="bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm">
+            <div className="flex items-center gap-3 mb-3">
+              <FaPhone className="text-green-500" size={20} />
+              <h3 className="text-xl font-semibold">Call Us</h3>
+            </div>
+            <p className="text-gray-300">(555) 123-4567</p>
+          </div>
+          <div className="bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm">
+            <div className="flex items-center gap-3 mb-3">
+              <FaEnvelope className="text-yellow-500" size={20} />
+              <h3 className="text-xl font-semibold">Email Us</h3>
+            </div>
+            <p className="text-gray-300">support@example.com</p>
+          </div>
+        </div>
+
+        {/* Contact Form */}
+        <div className="bg-white bg-opacity-10 p-8 rounded-lg backdrop-blur-sm max-w-2xl mx-auto">
+          <h3 className="text-2xl font-semibold mb-6 text-center">Send a Message</h3>
           <form className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Name</label>
-              <Input type="text" placeholder="Your Name" required />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Email</label>
-              <Input type="email" placeholder="Your Email" required />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Message</label>
-              <Textarea placeholder="Your Message" rows={4} required />
-            </div>
-            <Button type="submit" variant="plumbingPrimary" className="w-full">
+            <input type="text" placeholder="Your Name" className="w-full p-3 rounded-lg bg-gray-100 text-black" />
+            <input type="email" placeholder="Your Email" className="w-full p-3 rounded-lg bg-gray-100 text-black" />
+            <textarea placeholder="Your Message" className="w-full p-3 rounded-lg bg-gray-100 text-black h-32"></textarea>
+            <button className="w-full bg-[#3498db] text-white font-semibold py-3 rounded-lg hover:bg-[#2980b9] transition-colors">
               Send Message
-            </Button>
+            </button>
           </form>
-        </CardContent>
-      </Card>
+        </div>
 
-      {/* Contact Info */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-        <div className="space-y-2">
-          <Mail className="mx-auto text-blue-600" size={28} />
-          <p className="text-lg font-semibold">Email</p>
-          <p className="text-gray-600">contact@plumbingservice.com</p>
-        </div>
-        <div className="space-y-2">
-          <Phone className="mx-auto text-blue-600" size={28} />
-          <p className="text-lg font-semibold">Phone</p>
-          <p className="text-gray-600">+1 (555) 123-4567</p>
-        </div>
-        <div className="space-y-2">
-          <MapPin className="mx-auto text-blue-600" size={28} />
-          <p className="text-lg font-semibold">Address</p>
-          <p className="text-gray-600">123 Plumbing St, NY, USA</p>
+        {/* Operating Hours */}
+        <div className="mt-12 text-center">
+          <h3 className="text-xl font-semibold mb-4">Operating Hours</h3>
+          <div className="flex justify-center items-center gap-3 bg-[#3498db] text-white p-4 rounded-lg max-w-md mx-auto">
+            <FaClock size={20} />
+            <p>24/7 Availability - Emergency Services Included</p>
+          </div>
         </div>
       </div>
-
-      {/* Google Maps */}
-      <div className="rounded-lg overflow-hidden shadow-lg">
-        <iframe
-          className="w-full h-64"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434508616!2d144.95373631568037!3d-37.81627974202117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7b1c2a3e5a4b6d8c!2sYour+Plumbing+Company!5e0!3m2!1sen!2sus!4v1633078809252!5m2!1sen!2sus"
-          allowFullScreen=""
-          loading="lazy"
-        ></iframe>
-      </div>
-    </div>
+    </section>
   );
 };
 
