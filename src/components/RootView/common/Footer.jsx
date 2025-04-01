@@ -8,16 +8,16 @@ const Footer = () => {
     <footer className="bg-[#2c3e50] text-white pt-12 pb-6">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          
+
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <div className="h-20 w-20">
-              <Lottie
-                            animationData={plumbingAnimation}
-                            loop={true}
-                            className="w-full h-full"
-                        />
+                <Lottie
+                  animationData={plumbingAnimation}
+                  loop={true}
+                  className="w-full h-full"
+                />
               </div>
               <h3 className="text-xl font-bold text-wrap">PrimeFlow Plumbing</h3>
             </div>
