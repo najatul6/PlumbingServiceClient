@@ -96,7 +96,7 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} PrimeFlow Plumbing. All rights reserved By - <Link to="https://najatul-islam.vercel.app/" target="_blank" className="hover:underline text-primaryBlue">Md Najatul islam</Link>.
           </p>
           <div className="flex space-x-6">
-            <a href="/privacy" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Privacy Policy</a>
+            <a href="/privacy-policy" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Privacy Policy</a>
             <a href="/terms" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Terms of Service</a>
             <a href="/sitemap" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Sitemap</a>
           </div>
