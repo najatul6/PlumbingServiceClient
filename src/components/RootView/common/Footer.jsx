@@ -44,11 +44,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 border-b border-blue-400 pb-2">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="/services" className="text-gray-300 hover:text-blue-400 transition-colors">Our Services</a></li>
-              <li><a href="/about" className="text-gray-300 hover:text-blue-400 transition-colors">About Us</a></li>
-              <li><a href="/areas" className="text-gray-300 hover:text-blue-400 transition-colors">Service Areas</a></li>
-              <li><a href="/contact" className="text-gray-300 hover:text-blue-400 transition-colors">Contact</a></li>
-              <li><a href="/faq" className="text-gray-300 hover:text-blue-400 transition-colors">FAQ</a></li>
+              <li><Link to="/services" className="text-gray-300 hover:text-blue-400 transition-colors">Our Services</Link></li>
+              <li><Link to="/about" className="text-gray-300 hover:text-blue-400 transition-colors">About Us</Link></li>
+              <li><a to="/areas" className="text-gray-300 hover:text-blue-400 transition-colors">Service Areas</a></li>
+              <li><a to="/contact" className="text-gray-300 hover:text-blue-400 transition-colors">Contact</a></li>
+              <li><a to="/faq" className="text-gray-300 hover:text-blue-400 transition-colors">FAQ</a></li>
             </ul>
           </div>
 
@@ -56,11 +56,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 border-b border-blue-400 pb-2">Services</h3>
             <ul className="space-y-2">
-              <li><a href="/services/drain-cleaning" className="text-gray-300 hover:text-blue-400 transition-colors">Drain Cleaning</a></li>
-              <li><a href="/services/water-heater" className="text-gray-300 hover:text-blue-400 transition-colors">Water Heater Repair</a></li>
-              <li><a href="/services/pipe-repair" className="text-gray-300 hover:text-blue-400 transition-colors">Pipe Repair</a></li>
-              <li><a href="/services/leak-detection" className="text-gray-300 hover:text-blue-400 transition-colors">Leak Detection</a></li>
-              <li><a href="/services/emergency" className="text-gray-300 hover:text-blue-400 transition-colors">Emergency Services</a></li>
+              <li><Link to="/services/drain-cleaning" className="text-gray-300 hover:text-blue-400 transition-colors">Drain Cleaning</Link></li>
+              <li><Link to="/services/water-heater" className="text-gray-300 hover:text-blue-400 transition-colors">Water Heater Repair</Link></li>
+              <li><Link to="/services/pipe-repair" className="text-gray-300 hover:text-blue-400 transition-colors">Pipe Repair</Link></li>
+              <li><Link to="/services/leak-detection" className="text-gray-300 hover:text-blue-400 transition-colors">Leak Detection</Link></li>
+              <li><Link to="/services/emergency" className="text-gray-300 hover:text-blue-400 transition-colors">Emergency Services</Link></li>
             </ul>
           </div>
 
@@ -96,9 +96,9 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} PrimeFlow Plumbing. All rights reserved By - <Link to="https://najatul-islam.vercel.app/" target="_blank" className="hover:underline text-primaryBlue font-bold">Md Najatul islam</Link>.
           </p>
           <div className="flex space-x-6">
-            <Link href="/privacy-policy" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Terms of Service</Link>
-            <Link href="/sitemap" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Sitemap</Link>
+            <Link to="/privacy-policy" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Terms of Service</Link>
+            <Link to="/sitemap" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Sitemap</Link>
           </div>
         </div>
       </div>
