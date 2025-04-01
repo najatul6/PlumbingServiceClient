@@ -25,18 +25,18 @@ const Footer = () => {
               Licensed and insured plumbing professionals serving your area since 2010.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
+              <Link to="#" className="text-gray-300 hover:text-blue-400 transition-colors">
                 <FaFacebook size={20} />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
+              </Link>
+              <Link to="#" className="text-gray-300 hover:text-blue-400 transition-colors">
                 <FaTwitter size={20} />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
+              </Link>
+              <Link to="#" className="text-gray-300 hover:text-blue-400 transition-colors">
                 <FaInstagram size={20} />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
+              </Link>
+              <Link to="#" className="text-gray-300 hover:text-blue-400 transition-colors">
                 <FaLinkedin size={20} />
-              </a>
+              </Link>
             </div>
           </div>
 
