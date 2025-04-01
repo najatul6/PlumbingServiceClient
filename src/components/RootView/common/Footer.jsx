@@ -93,12 +93,12 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} PrimeFlow Plumbing. All rights reserved By - <Link to="https://najatul-islam.vercel.app/" target="_blank" className="hover:underline text-primaryBlue">Md Najatul islam</Link>.
+            &copy; {new Date().getFullYear()} PrimeFlow Plumbing. All rights reserved By - <Link to="https://najatul-islam.vercel.app/" target="_blank" className="hover:underline text-primaryBlue font-bold">Md Najatul islam</Link>.
           </p>
           <div className="flex space-x-6">
-            <a href="/privacy-policy" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Privacy Policy</a>
-            <a href="/terms" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Terms of Service</a>
-            <a href="/sitemap" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Sitemap</a>
+            <Link href="/privacy-policy" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Terms of Service</Link>
+            <Link href="/sitemap" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Sitemap</Link>
           </div>
         </div>
       </div>
