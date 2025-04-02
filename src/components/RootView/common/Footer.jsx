@@ -12,7 +12,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="h-20 w-20">
+              <div className="h-2 w-20">
                 <Lottie
                   animationData={plumbingAnimation}
                   loop={true}
