@@ -19,7 +19,7 @@ const HeroSection = () => {
               to="/book-now" 
               className="bg-[#3498db] hover:bg-[#2980b9] text-white font-semibold py-3 px-6 rounded-lg text-center transition-colors"
             >
-              Book Online Now
+              Book Online Now 
             </Link>
             <a 
               href="tel:5551234567" 
