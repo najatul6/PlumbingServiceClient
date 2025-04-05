@@ -1,15 +1,12 @@
+import HeroSection from "@/components/RootView/common/HeroSection";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from "react-icons/fa";
 
 const ContactPage = () => {
   return (
-    <section className="py-16 bg-[#2c3e50] text-white">
+    <section className="py-10 bg-[#2c3e50] text-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Get in touch with our team for inquiries, support, or service requests.
-          </p>
-        </div>
+
+        <HeroSection title="Contact Us" subtitle="Get in touch with our team for inquiries, support, or service requests." />
 
         {/* Contact Details */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
