@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 
 const HeroSection = ({title,subtitle}) => {
   return (
@@ -10,6 +11,11 @@ const HeroSection = ({title,subtitle}) => {
     </div>
 </section>
   )
+}
+
+HeroSection.propTypes={
+    title:PropTypes.string,
+    subtitle:PropTypes.string
 }
 
 export default HeroSection
