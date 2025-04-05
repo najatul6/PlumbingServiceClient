@@ -2,6 +2,7 @@ import { FaMapMarkerAlt, FaPhone, FaCarAlt, FaClock } from "react-icons/fa";
 import { useState, useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import HeroSection from "@/components/RootView/common/HeroSection";
 
 // Fix for default marker icons
 delete L.Icon.Default.prototype._getIconUrl;
@@ -142,14 +143,10 @@ const ServiceAreas = () => {
   }, [expanded, map]);
 
   return (
-    <section className="py-16 bg-[#2c3e50] text-white">
+    <section className="py-10 bg-[#2c3e50] text-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Our Service Areas</h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Proudly serving the greater Portland metro area
-          </p>
-        </div>
+       
+        <HeroSection title="Our Service Areas" subtitle="Proudly serving the greater Portland metro area"/>
 
         {/* Coverage Details */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
