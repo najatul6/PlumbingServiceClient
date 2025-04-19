@@ -20,7 +20,7 @@ const UserAccount = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8 bg-gradient-to-br from-blue-50 to-purple-50 shadow-xl rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
+    <div className="max-w-md mx-auto my-8 bg-gradient-to-br from-blue-50 to-purple-50 shadow-xl rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl ">
       {/* Cover Photo */}
       <div className="h-48 bg-gradient-to-r from-indigo-500 to-purple-600 relative">
         <div className="absolute inset-0 bg-black/10 flex items-center justify-center">
@@ -99,30 +99,20 @@ const UserAccount = () => {
         )}
 
         {/* Stats */}
-        <div className="flex justify-center space-x-6 pt-4 border-t border-gray-200 mt-4">
-          <div className="text-center">
-            <p className="font-bold text-indigo-600">142</p>
-            <p className="text-xs text-gray-500">Posts</p>
-          </div>
-          <div className="text-center">
-            <p className="font-bold text-indigo-600">3.2K</p>
-            <p className="text-xs text-gray-500">Followers</p>
-          </div>
-          <div className="text-center">
-            <p className="font-bold text-indigo-600">256</p>
-            <p className="text-xs text-gray-500">Following</p>
-          </div>
+        <div className="flex justify-center items-center gap-3 pt-4 border-t border-gray-200 mt-4">
+            <p className=" text-gray-500">Member Since : </p>
+            <p className="font-bold text-indigo-600">142 Days Ago</p>
+         
+         
         </div>
       </div>
 
       {/* Additional Actions */}
       <div className="px-6 py-4 border-t border-gray-200 flex justify-between">
-        <Button variant="outline" className="w-full mr-2">
+        <Button  className="w-full ml-2 bg-gradient-to-r from-indigo-500 to-purple-600">
           Share Profile
         </Button>
-        <Button className="w-full ml-2 bg-gradient-to-r from-indigo-500 to-purple-600">
-          Upgrade
-        </Button>
+       
       </div>
     </div>
   );
