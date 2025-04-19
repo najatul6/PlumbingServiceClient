@@ -140,7 +140,7 @@ const ServiceAreas = () => {
     }
 
     setMarkers(newMarkers);
-  }, [expanded, map]);
+  }, [expanded, map,markers, serviceAreas.primary, serviceAreas.secondary]);
 
   return (
     <section className="py-10 bg-[#2c3e50] text-white">
