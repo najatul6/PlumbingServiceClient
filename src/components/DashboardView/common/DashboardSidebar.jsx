@@ -112,7 +112,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                       className={({ isActive }) =>
                         `text-white text-sm flex items-center rounded-md px-4 py-2 transition-all ${
                           isActive
-                            ? "text-baseColor bg-background"
+                            ? "text-white bg-primaryBlue"
                             : "hover:bg-background"
                         }`
                       }
