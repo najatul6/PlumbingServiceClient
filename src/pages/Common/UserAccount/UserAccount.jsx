@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { Pencil, Check, X, Share2 } from "lucide-react";
+import { toast } from "react-toastify";
 
 const UserAccount = () => {
   const [isEditing, setIsEditing] = useState(false);
