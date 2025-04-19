@@ -113,7 +113,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                         `text-white text-sm flex items-center rounded-md px-4 py-2 transition-all ${
                           isActive
                             ? "text-white bg-primaryBlue"
-                            : "hover:bg-background"
+                            : "hover:bg-[#174d70]"
                         }`
                       }
                     >
@@ -159,7 +159,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
               <li>
                 <Link
                   to="/dashboard/my-profile"
-                  className="text-white text-sm flex items-center hover:bg-background rounded-md px-4 py-2 transition-all"
+                  className="text-white text-sm flex items-center hover:bg-primaryBlue rounded-md px-4 py-2 transition-all"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -178,7 +178,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
               <li>
                 <button
                   onClick={handleLogout}
-                  className="text-white text-sm flex w-full items-center hover:bg-background rounded-md px-4 py-2 transition-all"
+                  className="text-white text-sm flex w-full items-center hover:bg-primaryBlue rounded-md px-4 py-2 transition-all"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

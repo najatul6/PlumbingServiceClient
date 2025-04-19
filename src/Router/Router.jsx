@@ -17,6 +17,7 @@ import ServicesPage from "@/pages/RootView/Services/Services";
 import ServiceDetail from "@/pages/RootView/Services/ServiceDetail";
 import ServiceAreas from "@/pages/RootView/ServiceAreas/ServiceAreas";
 import ContactPage from "@/pages/RootView/ContactPage/ContactPage";
+import MyOrders from "@/pages/DashboardView/MyOrders/MyOrders";
 
 const Router = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ const Router = createBrowserRouter([
         path: "my-profile",
         element: <UserAccount />,
       },
+      {
+        path:"my-orders",
+        element:<MyOrders/>,
+      }
     ],
   },
   {
