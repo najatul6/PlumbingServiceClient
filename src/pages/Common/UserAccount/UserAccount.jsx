@@ -1,29 +1,128 @@
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useState } from "react";
+import { Pencil, Check, X } from "lucide-react";
 
 const UserAccount = () => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [name, setName] = useState("Md Najatul Islam");
+  const [email] = useState("najatulislam11@gmail.com");
+  const [tempName, setTempName] = useState(name);
+
+  const handleSave = () => {
+    setName(tempName);
+    setIsEditing(false);
+  };
+
+  const handleCancel = () => {
+    setTempName(name);
+    setIsEditing(false);
+  };
+
   return (
-    <div className="max-w-2xl mx-4 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-16 bg-muted shadow-2xl rounded-lg text-gray-900">
-      <div className="rounded-t-lg h-32 overflow-hidden">
-        <img
-          className="object-cover object-top w-full"
-          src="https://raw.githubusercontent.com/najatul6/najatul6/main/coverImg/najatul6.jpg"
-          alt="Mountain"
-        />
+    <div className="max-w-md mx-auto mt-8 bg-gradient-to-br from-blue-50 to-purple-50 shadow-xl rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
+      {/* Cover Photo */}
+      <div className="h-48 bg-gradient-to-r from-indigo-500 to-purple-600 relative">
+        <div className="absolute inset-0 bg-black/10 flex items-center justify-center">
+          <span className="text-white text-opacity-80 text-sm">Cover Photo</span>
+        </div>
       </div>
-      <div className="mx-auto w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden flex justify-center items-center bg-gray-600">
-        <img
-          className="object-cover object-center h-32"
-          src="https://www.najatulislam.me/najatul6.png"
-          alt="Woman looking front"
-        />
+
+      {/* Profile Picture */}
+      <div className="flex justify-center -mt-20 relative">
+        <div className="relative group">
+          <img
+            className="w-40 h-40 rounded-full border-4 border-white object-cover shadow-lg transition-transform duration-300 group-hover:scale-105"
+            src="https://www.najatulislam.me/najatul6.png"
+            alt="Profile"
+          />
+          <div className="absolute inset-0 bg-black/30 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <Pencil className="text-white w-6 h-6" />
+          </div>
+        </div>
       </div>
-      <div className="text-center mt-2">
-        <h2 className="font-semibold">Md Najatul islam</h2>
-        <p>najatulislam11@gmail.com</p>
-        {/* <p className="text-gray-500">User</p> */}
+
+      {/* User Info */}
+      <div className="px-6 py-4 text-center space-y-4">
+        {isEditing ? (
+          <div className="flex flex-col items-center space-y-3">
+            <Input
+              value={tempName}
+              onChange={(e) => setTempName(e.target.value)}
+              className="text-center text-lg font-semibold w-full max-w-xs"
+            />
+            <div className="flex space-x-2">
+              <Button
+                size="sm"
+                onClick={handleSave}
+                className="bg-green-600 hover:bg-green-700"
+              >
+                <Check className="mr-1 h-4 w-4" /> Save
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={handleCancel}
+              >
+                <X className="mr-1 h-4 w-4" /> Cancel
+              </Button>
+            </div>
+          </div>
+        ) : (
+          <>
+            <h2 className="text-2xl font-bold text-gray-800">{name}</h2>
+            <p className="text-gray-600 flex items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 mr-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+              {email}
+            </p>
+            <Button
+              onClick={() => setIsEditing(true)}
+              variant="outline"
+              className="mt-2"
+            >
+              <Pencil className="mr-2 h-4 w-4" /> Edit Profile
+            </Button>
+          </>
+        )}
+
+        {/* Stats */}
+        <div className="flex justify-center space-x-6 pt-4 border-t border-gray-200 mt-4">
+          <div className="text-center">
+            <p className="font-bold text-indigo-600">142</p>
+            <p className="text-xs text-gray-500">Posts</p>
+          </div>
+          <div className="text-center">
+            <p className="font-bold text-indigo-600">3.2K</p>
+            <p className="text-xs text-gray-500">Followers</p>
+          </div>
+          <div className="text-center">
+            <p className="font-bold text-indigo-600">256</p>
+            <p className="text-xs text-gray-500">Following</p>
+          </div>
+        </div>
       </div>
-      <div className="p-4 border-t mx-8 mt-2 flex justify-center items-center">
-        <Button>Change Name</Button>
+
+      {/* Additional Actions */}
+      <div className="px-6 py-4 border-t border-gray-200 flex justify-between">
+        <Button variant="outline" className="w-full mr-2">
+          Share Profile
+        </Button>
+        <Button className="w-full ml-2 bg-gradient-to-r from-indigo-500 to-purple-600">
+          Upgrade
+        </Button>
       </div>
     </div>
   );
